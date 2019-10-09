@@ -41,3 +41,8 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+process.on('SIGINT', () => {
+  console.log("\nControl+C pushed! I'm exiting!\nBYE BYE!");
+  process.exit(0);
+});
