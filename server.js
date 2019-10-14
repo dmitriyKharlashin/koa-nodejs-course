@@ -4,6 +4,8 @@ const morgan = require('koa-morgan');
 const bodyParser = require('koa-bodyparser');
 
 const some = require('./module');
+const helloMiddleware = require('./helloMiddleware');
+const timeLoggerMiddleware = require('./timeLoggerMiddleware');
 
 const app = new Koa();
 const router = new Router();
@@ -22,6 +24,7 @@ const users = [
   },
 ];
 
+app.use(timeLoggerMiddleware).use(helloMiddleware);
 app.use(morgan('dev')).use(bodyParser());
 
 router
@@ -30,7 +33,6 @@ router
     ctx.body = users;
   })
   .get('/users/:id', async ctx => {
-    // ctx.body = { message: 'Hello, World!!!' };
     ctx.body = users.filter(user => user && user.id == ctx.params.id);
   })
   .post('/users', async ctx => {
