@@ -1,8 +1,9 @@
 const Koa = require('koa');
 const Router = require('koa-router');
-
 const morgan = require('koa-morgan');
 const bodyParser = require('koa-bodyparser');
+
+const some = require('./module');
 
 const app = new Koa();
 const router = new Router();
@@ -33,7 +34,7 @@ router
     ctx.body = users.filter(user => user && user.id == ctx.params.id);
   })
   .post('/users', async ctx => {
-    ctx.body = ctx.request.body;
+    ctx.body = some.greetings(ctx.request.body.name);
   });
 
 app.use(router.routes()).use(router.allowedMethods());
