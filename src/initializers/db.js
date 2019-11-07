@@ -29,7 +29,7 @@ class DB {
         },
       ];
 
-      fs.writeFileSync(fileRoute, JSON.stringify(seedData));
+      fs.writeFileSync(fileRoute, JSON.stringify(seedData, null, 2));
     }
   }
 

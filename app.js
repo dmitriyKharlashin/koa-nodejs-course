@@ -4,8 +4,8 @@ const morgan = require('koa-morgan');
 const bodyParser = require('koa-bodyparser');
 
 const initRoutes = require('./src/routes');
-const helloMiddleware = require('./helloMiddleware');
-const timeLoggerMiddleware = require('./timeLoggerMiddleware');
+const helloMiddleware = require('./src/middlewares/helloMiddleware');
+const timeLoggerMiddleware = require('./src/middlewares/timeLoggerMiddleware');
 
 const DB = require('./src/initializers/db');
 

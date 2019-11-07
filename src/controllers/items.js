@@ -1,6 +1,6 @@
 const LIVR = require('livr');
 
-const db = require('../db');
+const db = require('../initializers/db');
 
 LIVR.Validator.defaultAutoTrim(true);
 
