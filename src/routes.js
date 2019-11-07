@@ -5,6 +5,7 @@ const initRoutes = router => {
   });
 
   router
+    .get('/items/:itemId', itemsController.getItem)
     .get('/items', itemsController.getItems)
     .post('/items', itemsController.createItem)
     .delete('/items/:itemId', itemsController.deleteItem)

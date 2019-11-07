@@ -2,11 +2,11 @@
   "name": "nodekoacourse",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon server.js",
-    "start": "node server.js"
+    "test": "mocha --exit",
+    "start-dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "Dmytro Kharlashyn",
   "license": "ISC",
@@ -15,9 +15,14 @@
     "koa-bodyparser": "^4.2.1",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.4.0",
-    "minimist": "^1.2.0"
+    "livr": "^2.3.0",
+    "minimist": "^1.2.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "nodemon": "^1.19.3"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^1.19.3",
+    "supertest": "^4.0.2"
   }
 }
