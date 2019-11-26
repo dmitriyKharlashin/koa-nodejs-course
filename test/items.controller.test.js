@@ -16,4 +16,5 @@ describe('GET /items', () => {
         expect(body).to.be.an('array');
         expect(body).to.have.lengthOf(3);
     });
+    // TODO: add tests for create/update/delete methods
 });

@@ -36,7 +36,7 @@ class DB {
     async createItem({price, name}) {
         // const id = this._nextId++;
         const id = uuid();
-        const items = await this._readItemsfromData();
+        const items = await this._readItemsFromData();
         const newItem = {
             id,
             price,
@@ -52,17 +52,17 @@ class DB {
     async getItem(id) {
         if (!id) return null;
 
-        const items = await this._readItemsfromData();
+        const items = await this._readItemsFromData();
 
         return items.find(item => item.id === id);
     }
 
     async getItems() {
-        return await this._readItemsfromData();
+        return await this._readItemsFromData();
     }
 
     async deleteItem(id) {
-        let items = await this._readItemsfromData();
+        let items = await this._readItemsFromData();
 
         items = items.filter(item => item.id !== id);
         await this._writeItemsIntoData(items);
@@ -72,7 +72,7 @@ class DB {
         if (!id || !price || !name) return null;
 
         let updatedItem = null;
-        let items = await this._readItemsfromData();
+        let items = await this._readItemsFromData();
 
         items = items.map(item => {
             if (item.id === id) {
@@ -92,7 +92,7 @@ class DB {
         return updatedItem;
     }
 
-    async _readItemsfromData() {
+    async _readItemsFromData() {
         let items;
         const readFilePromise = util.promisify(fs.readFile);
 
